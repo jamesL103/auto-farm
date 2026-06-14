@@ -123,17 +123,16 @@ local function auto_farm(width, height)
 end
 
 -- run only if main script
-if shell and shell.getRunningProgram() == '/auto_farm.lua' then
+if shell and shell.getRunningProgram() == 'auto_farm.lua' then
     local width, height
     if arg[1] == nil then
         width = 9
-    end
-    if arg[2] == nil then
         height = 9
+    else 
+        width = tonumber(arg[1])
+        height = tonumber(arg[2])
+        assert(width ~= nil and height ~= nil)
     end
-    width = tonumber(arg[1])
-    height = tonumber(arg[2])
-    assert(width ~= nil and height ~= nil)
     while true do
         auto_farm(width, height)
         wait(420)

@@ -67,7 +67,7 @@ local function turnAround()
     turtle.turnLeft()
 end
 
-local function farmCol()
+local function farmCol(height)
     for i = 1, height do
         tryHarvestAndReplant()
         if i < height then
@@ -76,7 +76,7 @@ local function farmCol()
     end
 end
 
-local function goToNextCol(col)
+local function goToNextCol(col, width)
     if col >= width then
         return
     end
@@ -95,8 +95,8 @@ end
 -- run one farming iteration over the farm
 local function auto_farm(width, height)
     for x = 1, width do
-        farmCol()
-        goToNextCol(x)
+        farmCol(height)
+        goToNextCol(x, width)
     end
 
     -- Return to starting corner

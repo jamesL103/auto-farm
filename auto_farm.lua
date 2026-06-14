@@ -135,6 +135,6 @@ if shell and shell.getRunningProgram() == 'auto_farm.lua' then
     end
     while true do
         auto_farm(width, height)
-        wait(420)
+        sleep(420)
     end
 end

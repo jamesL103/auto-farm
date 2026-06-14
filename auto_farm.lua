@@ -110,6 +110,7 @@ local function auto_farm(width, height)
         forwardOrError()
     end
 
+    -- return to start position and original orientation
     if width % 2 == 1 then
         turtle.turnLeft()
         for i = 1, height - 1 do
@@ -122,7 +123,7 @@ local function auto_farm(width, height)
 end
 
 -- run only if main script
-if debug.getinfo(2) == nil then
+if shell and shell.getRunningProgram() == '/auto_farm.lua' then
     local width, height
     if arg[1] == nil then
         width = 9

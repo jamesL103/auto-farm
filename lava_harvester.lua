@@ -42,7 +42,7 @@ end
 while true do
     -- wrap chest as peripheral
     local depot = peripheral.wrap("front") -- fuel depot chest
-    local buffer = peripheral.wrap("up") -- item transferring buffer chest
+    local buffer = peripheral.wrap("top") -- item transferring buffer chest
 
     --check own fuel level
     if turtle.getFuelLevel() < MIN_FUEL then

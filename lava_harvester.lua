@@ -82,21 +82,26 @@ while true do
         end
         turtle.forward()
         turtle.turnLeft()
-        turtle.place()
+        local hasBlock, block = turtle.inspect()
+        if hasBlock and block.name == "minecraft:lava_cauldron" then
+            turtle.place()
+            empty_buckets = empty_buckets - 1
+        end
         turtle.turnRight()
-        empty_buckets = empty_buckets - 1
         if empty_buckets <= 0 then
             break
         end
         turtle.turnRight()
-        turtle.place()
+        if hasBlock and block.name == "minecraft:lava_cauldron" then
+            turtle.place()
+            empty_buckets = empty_buckets - 1
+        end
         turtle.turnLeft()
-        empty_buckets = empty_buckets - 1
     end
     return_to_start()
 
     transferAllItems()
-    
+
     -- wait
     sleep(WAIT_TIME)
 end

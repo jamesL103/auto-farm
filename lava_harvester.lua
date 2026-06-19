@@ -92,6 +92,7 @@ while true do
             break
         end
         turtle.turnRight()
+        hasBlock, block = turtle.inspect()
         if hasBlock and block.name == "minecraft:lava_cauldron" then
             turtle.place()
             empty_buckets = empty_buckets - 1

@@ -34,7 +34,7 @@ while true do
     if turtle.getFuelLevel() < MIN_FUEL then
         for slot, item in pairs(depot.list()) do
             if item ~= nil and item.name == "minecraft:lava_bucket" then
-                depot.pushItems(buffer.getName(), slot) -- move only one lava bucket for now
+                depot.pushItems(peripheral.getName(buffer), slot) -- move only one lava bucket for now
             end
         end
 
@@ -58,7 +58,7 @@ while true do
     -- check depot for empty buckets
     for slot, item in pairs(depot.list()) do
         if item ~= nil and item.name == "minecraft:bucket" then
-            depot.pushItems(buffer.getName(), slot)
+            depot.pushItems(peripheral.getName(buffer), slot)
         end
     end
     turtle.suckUp()

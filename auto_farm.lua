@@ -137,4 +137,8 @@ if shell and shell.getRunningProgram() == 'auto_farm.lua' then
         auto_farm(width, height)
         sleep(420)
     end
+else -- run if moduel
+    local exports = {}
+    exports.auto_farm = auto_farm
+    return exports
 end

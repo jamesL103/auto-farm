@@ -54,8 +54,6 @@ while true do
         transferAllItems()
     end
 
-    -- wait
-    sleep(WAIT_TIME)
 
     -- check depot for empty buckets
     for slot, item in pairs(depot.list()) do
@@ -98,4 +96,7 @@ while true do
     return_to_start()
 
     transferAllItems()
+    
+    -- wait
+    sleep(WAIT_TIME)
 end

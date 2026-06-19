@@ -55,7 +55,7 @@ while true do
     end
 
     -- wait
-    -- sleep(WAIT_TIME)
+    sleep(WAIT_TIME)
 
     -- check depot for empty buckets
     for slot, item in pairs(depot.list()) do

@@ -66,7 +66,8 @@ while true do
     -- get number of empty buckets
     local empty_buckets = 0
     for slot = 1, 16 do
-        if turtle.getItemDetail(slot).name == "minecraft:bucket" then
+        local item = turtle.getItemDetail(slot)
+        if item ~= nil and item.name == "minecraft:bucket" then
             empty_buckets = empty_buckets + 1
         end
     end

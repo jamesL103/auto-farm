@@ -17,12 +17,13 @@ local function return_to_start()
     turtle.turnRight()
     local hasFrontBlock, front_block = turtle.inspect()
     local hasUpBlock, up_block = turtle.inspectUp()
-    while not hasFrontBlock or not hasUpBlock or (front_block ~= "minecraft:chest" and up_block ~= "minecraft:chest") do
+    while not hasFrontBlock or not hasUpBlock or (front_block.name ~= "minecraft:chest" or up_block.name ~= "minecraft:chest") do
         turtle.turnRight()
         turtle.forward()
         turtle.turnLeft()
         hasFrontBlock, front_block = turtle.inspect()
         hasUpBlock, up_block = turtle.inspectUp()
+        print(hasFrontBlock, front_block.name ~= "minecraft:chest", hasUpBlock, up_block.name ~= "minecraft:chest")
     end
     turtle.turnLeft()
 end
@@ -74,9 +75,8 @@ while true do
         end
     end
     print("Detected " .. empty_buckets .. " empty buckets" )
-    if empty_buckets > 0 then
-        turtle.turnLeft()
-    end
+
+    turtle.turnLeft()
     -- refuel empty buckets
     for i = 1, cauldrons do
         -- check if empty buckets left in inventory

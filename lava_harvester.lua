@@ -17,7 +17,7 @@ local function return_to_start()
     local hasFrontBlock, front_block = turtle.inspect()
     local hasUpBlock, up_block = turtle.inspectUp()
     turtle.turnRight()
-    while ~hasFrontBlock or ~hasUpBlock or (front_block ~= "minecraft:chest" and up_block ~= "minecraft:chest") do
+    while not hasFrontBlock or not hasUpBlock or (front_block ~= "minecraft:chest" and up_block ~= "minecraft:chest") do
         turtle.turnRight()
         turtle.forward()
         turtle.turnLeft()

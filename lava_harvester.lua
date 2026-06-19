@@ -25,7 +25,6 @@ local function return_to_start()
         hasUpBlock, up_block = turtle.inspectUp()
         print(hasFrontBlock, front_block.name ~= "minecraft:chest", hasUpBlock, up_block.name ~= "minecraft:chest")
     end
-    turtle.turnLeft()
 end
 
 while true do

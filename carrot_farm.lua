@@ -1,4 +1,5 @@
 local auto_farm = require('auto_farm').auto_farm
+local WAIT_TIME = 480
 
 local width, height
 if arg[1] == nil then
@@ -29,4 +30,8 @@ while true do
     if turtle.getFuelLevel() < MIN_FUEL then
         
     end
+
+    turtle.turnRight()
+    -- wait for next harvest
+    sleep(WAIT_TIME)
 end

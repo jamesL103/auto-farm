@@ -70,7 +70,7 @@ while true do
     for slot = 1, 16 do
         local item = turtle.getItemDetail(slot)
         if item ~= nil and item.name == "minecraft:bucket" then
-            empty_buckets = empty_buckets + 1
+            empty_buckets = empty_buckets + item.count
         end
     end
     print("Detected " .. empty_buckets .. " empty buckets" )

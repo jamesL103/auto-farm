@@ -5,26 +5,12 @@ local cauldrons = arg[1]
 local WAIT_TIME = 60
 local MIN_FUEL = 200
 
--- transfer all items from source inventory to destination
-local function transferAllItems(src, dest)
-    for slot, item in pairs(src.list()) do
-        if item == nil then
-            goto continue
-        end
-        src.pushItems(dest.getName(), slot)
-
-        ::continue::
-    end
-end
-
--- transfer all items in the turtle to dest inventory, through the buffer inventory
-local function transferToInventory(buffer, dest)
+-- transfer all items to inventory in front
+local function transferAllItems()
     for slot = 1, 16 do
         turtle.select(slot)
-        turtle.dropUp()
+        turtle.drop()
     end
-
-    transferAllItems(buffer, dest)
 end
 
 local function return_to_start()
@@ -63,11 +49,11 @@ while true do
                 break
             end
         end
-        transferToInventory(buffer, depot)
+        transferAllItems()
     end
 
     -- wait
-    -- sleep(300)
+    -- sleep(WAIT_TIME)
 
     -- check depot for empty buckets
     for slot, item in pairs(depot.list()) do
@@ -108,8 +94,5 @@ while true do
     end
     return_to_start()
 
-    for slot = 1, 16 do
-        turtle.select(slot)
-        turtle.drop()
-    end
+    transferAllItems()
 end

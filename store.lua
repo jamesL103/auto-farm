@@ -3,11 +3,9 @@
 local function storeCarrots()
     local farms = peripheral.wrap("top")
     local central = peripheral.wrap("right")
-    local chests = { peripheral.find("minecraft:chest", function(name, wrapped)
-        farms.isPresentRemote(name)
-    end) }
+    local chests = { peripheral.find("minecraft:chest")}
 
-    for _, chest in pairs(chests) do
+    for i, chest in pairs(chests) do
         for slot, item in pairs(chest.list()) do
             if item == nil then
                 goto continue

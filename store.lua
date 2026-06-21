@@ -3,9 +3,9 @@
 local function storeCarrots()
     local farms = peripheral.wrap("top")
     local central = peripheral.wrap("right")
-    local chests = peripheral.find("minecraft:chest", function(name, wrapped)
+    local chests = { peripheral.find("minecraft:chest", function(name, wrapped)
         farms.isPresentRemote(name)
-    end)
+    end) }
 
     for _, chest in pairs(chests) do
         for slot, item in pairs(chest.list()) do
@@ -23,5 +23,7 @@ if shell and shell.getRunningProgram() == 'store.lua' then
     local cmd = arg[1]
     if cmd == "carrot" then
         storeCarrots()
+    else 
+        error("Invalid command")
     end
 end

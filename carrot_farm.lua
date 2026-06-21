@@ -18,11 +18,11 @@ local function refuel()
         return
     end
 
-    for _ in 1, 4 do
+    for _ = 1, 4 do
         turtle.suckUp()
     end 
 
-    for slot in 1, 4 do
+    for slot = 1, 4 do
         turtle.select(slot)
         turtle.refuel()
         turtle.dropUp()

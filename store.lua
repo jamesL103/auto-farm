@@ -7,7 +7,7 @@ local function storeCarrots()
         farms.isPresentRemote(name)
     end)
 
-    for chest in chests do
+    for _, chest in pairs(chests) do
         for slot, item in pairs(chest.list()) do
             if item == nil then
                 goto continue

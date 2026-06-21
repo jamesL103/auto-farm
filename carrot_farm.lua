@@ -1,5 +1,5 @@
 local auto_farm = require('auto_farm').auto_farm
-local WAIT_TIME = 480
+local WAIT_TIME = 600
 
 local width, height
 if arg[1] == nil then

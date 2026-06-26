@@ -14,7 +14,8 @@ end
 local MIN_FUEL = 1000 -- TODO: create function relative to width and height
 
 local function refuel()
-    if chest == nil then
+    local blockAbove, chest = turtle.inspectUp()
+    if not blockAbove then
         return
     end
 
